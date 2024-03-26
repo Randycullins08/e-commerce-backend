@@ -1,0 +1,10 @@
++------------------+         +---------------------+        +---------------------+          +-----------------------+
+|      Product     | ------- |   ProductCategory   | ------ |     Customer        | -------  |      Order            |
++------------------+         +---------------------+        +---------------------+          +-----------------------+
+| ProductID (PK)   |         | CategoryID (PK)     |        | CustomerID (PK)     |          | OrderID (PK)          |
+| Name             |         | Name                |        | Name                |          | CustomerID (FK)       |
+| Description      |         +---------------------+        | Email               |          | Date                  |
+| Price            |                                        | Address             |          | TotalAmount           |
+| StockQuantity    |                                        | Phone               |          | Status                |
++------------------+                                        +---------------------+          +-----------------------+
+
