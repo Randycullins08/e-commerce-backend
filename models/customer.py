@@ -14,11 +14,16 @@ class Customer(db.Model):
     address = db.Column(db.String(), nullable=False)
     phone = db.Column(db.String(), nullable=False)
 
+    orders = db.relationship("Order", back_populates="customer", cascade="all, delete-orphan")
+
     def __init__(self, name, email, address, phone):
         self.name = name
         self.email = email
         self.address = address
         self.phone = phone
+
+    def new_customer_obj():
+        return Customer("", "", "", "")
 
 
 class CustomerSchema(ma.Schema):

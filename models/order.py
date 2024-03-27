@@ -14,7 +14,7 @@ class Order(db.Model):
     total_amount = db.Column(db.Float(), nullable=False)
     status = db.Column(db.String(), nullable=False)
 
-    customer = db.relationship("Customer", foreign_keys='[Customer.customer_id]', back_populates='order')
+    customer = db.relationship("Customer", back_populates='orders')
 
     def __init__(self, customer_id, date, total_amount, status):
         self.customer_id = customer_id
