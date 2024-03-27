@@ -3,7 +3,7 @@ import psycopg2
 from flask_marshmallow import Marshmallow
 import os
 
-from routes.customer_routes import customer
+from routes.__init__ import *
 
 from db import *
 from util.reflection import populate_object
