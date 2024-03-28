@@ -18,3 +18,19 @@ def add_customer(req):
         return jsonify({"message": "Unable to create customer"}), 400
 
     return jsonify({"message": "product created", "results": customer_schema.dump(new_customer)}), 200
+
+def get_customers(req):
+    customers = db.session.query(Customer).all()
+
+    if customers:
+        return jsonify({"message" : "Customers Found", "results" : customers_schema.dump(customers)}), 200
+    else:
+        return jsonify({"message" : "Customers not found"}), 404
+
+def get_customer_by_id(req, customer_id):
+    customer = db.session.query(Customer).filter(Customer.customer_id == customer_id).first()
+
+    if customer:
+        return jsonify({"message" : "Customer Found", "results" : customer_schema.dump(customer)}),200
+    else: 
+        return jsonify({"message" : "Customer not found"}),404
